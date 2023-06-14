@@ -1,0 +1,113 @@
+import 'package:flutter/material.dart';
+import 'package:saffron_project/components/footer.dart';
+import 'package:saffron_project/components/mainCards.dart';
+import 'package:saffron_project/contant/color.dart';
+
+class HydrogelPage extends StatefulWidget {
+  const HydrogelPage({super.key});
+
+  @override
+  State<HydrogelPage> createState() => _HydrogelPageState();
+}
+
+class _HydrogelPageState extends State<HydrogelPage>
+    with SingleTickerProviderStateMixin {
+  final List<Tab> myTabs = <Tab>[
+    const Tab(text: 'INFO'),
+    const Tab(text: 'STORE'),
+  ];
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: myTabs.length);
+  }
+
+  @override
+  void dispose() {
+    _tabController!.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      appBar: AppBar(
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: myTabs,
+          indicatorColor: Colors.white,
+          labelColor: Colors.white,
+          unselectedLabelColor: Colors.grey,
+        ),
+        title: const Text(
+          "Hydrogel",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: mainColor,
+        elevation: 0,
+        foregroundColor: Colors.white,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              child: Stack(
+                children: [
+                  TabBarView(
+                    controller: _tabController,
+                    children: [Info(), footer()],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Info extends StatelessWidget {
+  const Info({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                color: mainColor,
+                image: const DecorationImage(
+                    opacity: 0.5,
+                    image: AssetImage("assets/images/hydrogel_slider.jpg"),
+                    fit: BoxFit.cover)),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "What is",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 55,
+                      fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  "Hydrogel?",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 55,
+                      fontWeight: FontWeight.w700),
+                )
+              ],
+            ))
+      ],
+    );
+  }
+}

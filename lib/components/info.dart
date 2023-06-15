@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:saffron_project/components/footer.dart';
+
 import 'package:saffron_project/contant/color.dart';
 
 class Info extends StatelessWidget {
@@ -9,9 +9,6 @@ class Info extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const SizedBox(
-          height: 150,
-        ),
         Container(
             height: 300,
             width: MediaQuery.of(context).size.width,
@@ -88,9 +85,7 @@ class Info extends StatelessWidget {
                 "In a method with a controlled heat and vacuum system, the water is removed from the environment and the micronized saffron remains, of course, while maintaining all the properties of saffron. The solution is made into a liquid and is crushed by an automatic system and gradual injection of the solution inside the vessel from a substance with a calcium base and a certain percentage, and this product takes a spherical and hard (gelatinous) shape, and this final product is the saffron hydrogel.",
                 style: TextStyle(color: Colors.black, fontSize: 18),
               ),
-              const SizedBox(
-                height: 50,
-              ),
+              const SizedBox(height: 180)
             ],
           ),
         )

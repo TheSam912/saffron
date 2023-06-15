@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/components/footer.dart';
 import 'package:saffron_project/components/mainCards.dart';
+import 'package:saffron_project/components/store.dart';
 import 'package:saffron_project/contant/color.dart';
 
 import '../components/info.dart';
@@ -15,8 +16,8 @@ class HydrogelPage extends StatefulWidget {
 class _HydrogelPageState extends State<HydrogelPage>
     with SingleTickerProviderStateMixin {
   final List<Tab> myTabs = <Tab>[
-    const Tab(text: 'INFO'),
     const Tab(text: 'STORE'),
+    const Tab(text: 'INFO'),
   ];
   TabController? _tabController;
 
@@ -61,7 +62,10 @@ class _HydrogelPageState extends State<HydrogelPage>
                 children: [
                   TabBarView(
                     controller: _tabController,
-                    children: const [Info()],
+                    children: const [
+                      Store(),
+                      Info(),
+                    ],
                   )
                 ],
               ),

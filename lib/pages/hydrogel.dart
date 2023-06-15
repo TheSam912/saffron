@@ -38,6 +38,18 @@ class _HydrogelPageState extends State<HydrogelPage>
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.shopping_cart_rounded,
+                  size: 25,
+                  color: Colors.white,
+                )),
+          )
+        ],
         bottom: TabBar(
           controller: _tabController,
           tabs: myTabs,

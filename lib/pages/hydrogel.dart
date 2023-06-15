@@ -3,6 +3,8 @@ import 'package:saffron_project/components/footer.dart';
 import 'package:saffron_project/components/mainCards.dart';
 import 'package:saffron_project/contant/color.dart';
 
+import '../components/info.dart';
+
 class HydrogelPage extends StatefulWidget {
   const HydrogelPage({super.key});
 
@@ -33,7 +35,7 @@ class _HydrogelPageState extends State<HydrogelPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         bottom: TabBar(
           controller: _tabController,
@@ -59,7 +61,7 @@ class _HydrogelPageState extends State<HydrogelPage>
                 children: [
                   TabBarView(
                     controller: _tabController,
-                    children: [Info(), footer()],
+                    children: const [Info()],
                   )
                 ],
               ),
@@ -67,47 +69,6 @@ class _HydrogelPageState extends State<HydrogelPage>
           ],
         ),
       ),
-    );
-  }
-}
-
-class Info extends StatelessWidget {
-  const Info({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                color: mainColor,
-                image: const DecorationImage(
-                    opacity: 0.5,
-                    image: AssetImage("assets/images/hydrogel_slider.jpg"),
-                    fit: BoxFit.cover)),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "What is",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 55,
-                      fontWeight: FontWeight.w700),
-                ),
-                Text(
-                  "Hydrogel?",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 55,
-                      fontWeight: FontWeight.w700),
-                )
-              ],
-            ))
-      ],
     );
   }
 }

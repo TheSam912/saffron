@@ -11,7 +11,7 @@ Widget mainDesign(BuildContext context) {
       Positioned(
         child: Column(
           children: [
-            myAppbar(),
+            myAppbar(context),
             const SizedBox(
               height: 10,
             ),

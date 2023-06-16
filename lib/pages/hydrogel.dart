@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/components/footer.dart';
-import 'package:saffron_project/components/mainCards.dart';
+import 'package:saffron_project/components/mainDesign.dart';
 import 'package:saffron_project/components/store.dart';
 import 'package:saffron_project/contant/color.dart';
 

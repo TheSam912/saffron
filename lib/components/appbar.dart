@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
+import 'package:saffron_project/pages/basket.dart';
 
-Widget myAppbar() {
+Widget myAppbar(BuildContext context) {
   return Container(
     decoration: BoxDecoration(
         color: mainColor,
@@ -33,7 +34,13 @@ Widget myAppbar() {
         Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const BasketPage();
+                  },
+                ));
+              },
               icon: const Icon(
                 Icons.shopping_cart_rounded,
                 size: 25,

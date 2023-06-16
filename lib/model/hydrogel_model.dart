@@ -37,5 +37,5 @@ List<HydrogelModel> listHydrogel = [
       title: "1gram saffron",
       weight: "100gram hyedrogel",
       price: "3.50",
-      image: "assets/images/hydrogel/hydrogel4.jpeg")
+      image: "assets/images/hydrogel/hydrogel4.jpeg"),
 ];

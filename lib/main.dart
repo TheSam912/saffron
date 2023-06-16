@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
-import 'components/mainCards.dart';
+import 'components/mainDesign.dart';
 
 void main() {
   runApp(const MyApp());

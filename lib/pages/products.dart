@@ -5,6 +5,7 @@ import 'package:saffron_project/model/product_model.dart';
 import '../model/basket_model.dart';
 import 'basket.dart';
 
+// ignore: must_be_immutable
 class ProductsStore extends StatelessWidget {
   String type;
   ProductsStore({super.key, required this.type});

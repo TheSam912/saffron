@@ -3,6 +3,7 @@ import 'package:saffron_project/components/footer.dart';
 import 'package:saffron_project/components/mainDesign.dart';
 import 'package:saffron_project/components/store.dart';
 import 'package:saffron_project/contant/color.dart';
+import 'package:saffron_project/pages/basket.dart';
 
 import '../components/info.dart';
 
@@ -42,7 +43,13 @@ class _HydrogelPageState extends State<HydrogelPage>
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const BasketPage();
+                    },
+                  ));
+                },
                 icon: const Icon(
                   Icons.shopping_cart_rounded,
                   size: 25,

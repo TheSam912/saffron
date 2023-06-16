@@ -6,37 +6,59 @@ import '../model/hydrogel_model.dart';
 import 'dialogAddBasket.dart';
 
 Widget myGridViewItem(BuildContext context, int index) {
-  return GestureDetector(
-    onTap: () {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return dialogAddBasket(index);
+  return Stack(
+    fit: StackFit.expand,
+    children: [
+      GestureDetector(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return dialogAddBasket(index);
+            },
+          );
         },
-      );
-    },
-    child: Container(
-      margin: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.grey.shade300, blurRadius: 10)]),
-      child: Column(
-        children: [
-          Image.asset(
-            listHydrogel[index].image,
-            width: 130,
-            height: 130,
-            fit: BoxFit.cover,
+        child: Container(
+          margin: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(color: Colors.grey.shade300, blurRadius: 10)
+              ]),
+          child: Column(
+            children: [
+              Image.asset(
+                listHydrogel[index].image,
+                width: 130,
+                height: 130,
+                fit: BoxFit.cover,
+              ),
+              Text(listHydrogel[index].title),
+              Text(listHydrogel[index].weight),
+              Text(
+                "${listHydrogel[index].price}€",
+                style: TextStyle(fontWeight: FontWeight.w800, color: mainColor),
+              )
+            ],
           ),
-          Text(listHydrogel[index].title),
-          Text(listHydrogel[index].weight),
-          Text(
-            "${listHydrogel[index].price}€",
-            style: TextStyle(fontWeight: FontWeight.w800, color: mainColor),
-          )
-        ],
+        ),
       ),
-    ),
+      Positioned(
+          top: 15,
+          right: 15,
+          child: Container(
+            width: 35,
+            height: 35,
+            decoration: BoxDecoration(shape: BoxShape.circle, color: mainColor),
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.add_shopping_cart,
+                  color: Colors.white,
+                  size: 20,
+                )),
+          ))
+    ],
   );
 }

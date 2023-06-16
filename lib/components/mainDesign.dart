@@ -20,13 +20,13 @@ Widget mainDesign(BuildContext context) {
               children: [
                 Flexible(
                   flex: 1,
-                  child: boxHalfContainer(
-                      "Organic\nSaffron", "assets/images/saffron.jpg"),
+                  child: boxHalfContainer(context, "Organic\nSaffron",
+                      "assets/images/saffron.jpg", "saffron"),
                 ),
                 Flexible(
                     flex: 1,
-                    child: boxHalfContainer(
-                        "Honey\nSaffron", "assets/images/honey.jpg"))
+                    child: boxHalfContainer(context, "Honey\nSaffron",
+                        "assets/images/honey.jpg", "honey"))
               ],
             ),
             fullWidthBox(context, "BLOG", "assets/images/blog.jpg"),

@@ -45,14 +45,10 @@ class ProductsStore extends StatelessWidget {
 }
 
 Widget gridHoney() {
-  return Container();
-}
-
-Widget gridSaffron() {
   return GridView.builder(
     gridDelegate:
         const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-    itemCount: productList.length,
+    itemCount: honeyList.length,
     shrinkWrap: true,
     itemBuilder: (context, index) {
       return Stack(
@@ -69,15 +65,73 @@ Widget gridSaffron() {
             child: Column(
               children: [
                 Image.asset(
-                  productList[index].image,
+                  honeyList[index].image,
                   width: 130,
                   height: 130,
                   fit: BoxFit.cover,
                 ),
-                Text(productList[index].title),
-                Text(productList[index].weight),
+                Text(honeyList[index].title),
+                Text(honeyList[index].weight),
                 Text(
-                  "${productList[index].price}€",
+                  "${honeyList[index].price}€",
+                  style:
+                      TextStyle(fontWeight: FontWeight.w800, color: mainColor),
+                )
+              ],
+            ),
+          ),
+          Positioned(
+              top: 15,
+              right: 15,
+              child: Container(
+                width: 35,
+                height: 35,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: mainColor),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.add_shopping_cart,
+                      color: Colors.white,
+                      size: 20,
+                    )),
+              ))
+        ],
+      );
+    },
+  );
+}
+
+Widget gridSaffron() {
+  return GridView.builder(
+    gridDelegate:
+        const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+    itemCount: saffronList.length,
+    shrinkWrap: true,
+    itemBuilder: (context, index) {
+      return Stack(
+        fit: StackFit.expand,
+        children: [
+          Container(
+            margin: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(color: Colors.grey.shade300, blurRadius: 10)
+                ]),
+            child: Column(
+              children: [
+                Image.asset(
+                  saffronList[index].image,
+                  width: 130,
+                  height: 130,
+                  fit: BoxFit.cover,
+                ),
+                Text(saffronList[index].title),
+                Text(saffronList[index].weight),
+                Text(
+                  "${saffronList[index].price}€",
                   style:
                       TextStyle(fontWeight: FontWeight.w800, color: mainColor),
                 )

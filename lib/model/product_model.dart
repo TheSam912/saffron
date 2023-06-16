@@ -13,7 +13,7 @@ class ProductModel {
       required this.price});
 }
 
-List<ProductModel> productList = [
+List<ProductModel> saffronList = [
   ProductModel(
       id: 4,
       title: "Saffron 100% Organic",
@@ -44,4 +44,37 @@ List<ProductModel> productList = [
       weight: "100 Grams",
       image: "assets/images/saffron/saffron1.png",
       price: "200"),
+];
+
+List<ProductModel> honeyList = [
+  ProductModel(
+      id: 4,
+      title: "Honey, 80 Ounce",
+      weight: "250 Grams",
+      image: "assets/images/honey/honey.png",
+      price: "20"),
+  ProductModel(
+      id: 4,
+      title: "Honey, 80 Ounce",
+      weight: "500 Grams",
+      image: "assets/images/honey/honey.png",
+      price: "40"),
+  ProductModel(
+      id: 4,
+      title: "Honey, 80 Ounce",
+      weight: "1 Kilogram",
+      image: "assets/images/honey/honey.png",
+      price: "50"),
+  ProductModel(
+      id: 4,
+      title: "Honey, 80 Ounce",
+      weight: "2 Kilogram",
+      image: "assets/images/honey/honey.png",
+      price: "90"),
+  ProductModel(
+      id: 4,
+      title: "Honey, 80 Ounce",
+      weight: "5 Kilogram",
+      image: "assets/images/honey/honey.png",
+      price: "400"),
 ];

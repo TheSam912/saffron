@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
 import 'package:saffron_project/model/product_model.dart';
 
+import '../model/basket_model.dart';
 import 'basket.dart';
 
 class ProductsStore extends StatelessWidget {
@@ -147,7 +148,15 @@ Widget gridSaffron() {
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: mainColor),
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      listBasket.add(BasketModel(
+                          id: 0,
+                          title:
+                              "${saffronList[index].weight} ${saffronList[index].title}",
+                          count: "1",
+                          image: saffronList[index].image,
+                          price: saffronList[index].price));
+                    },
                     icon: const Icon(
                       Icons.add_shopping_cart,
                       color: Colors.white,

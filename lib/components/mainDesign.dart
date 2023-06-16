@@ -15,7 +15,8 @@ Widget mainDesign(BuildContext context) {
             const SizedBox(
               height: 10,
             ),
-            fullWidthBox(context, "Hydrogel", "assets/images/hydrogel.jpg"),
+            fullWidthBox(
+                context, "Hydrogel", "assets/images/hydrogel.jpg", "hydrogel"),
             Row(
               children: [
                 Flexible(
@@ -29,7 +30,7 @@ Widget mainDesign(BuildContext context) {
                         "assets/images/honey.jpg", "honey"))
               ],
             ),
-            fullWidthBox(context, "BLOG", "assets/images/blog.jpg"),
+            fullWidthBox(context, "BLOG", "assets/images/blog.jpg", "blog"),
             footer()
           ],
         ),

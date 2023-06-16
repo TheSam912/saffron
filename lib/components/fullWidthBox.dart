@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
+import 'package:saffron_project/pages/blog.dart';
 
 import '../pages/hydrogel.dart';
 
-Widget fullWidthBox(BuildContext context, String tite, String image) {
+Widget fullWidthBox(
+    BuildContext context, String tite, String image, String type) {
   return Container(
     margin: const EdgeInsets.symmetric(horizontal: 8),
     height: 200,
@@ -16,7 +18,7 @@ Widget fullWidthBox(BuildContext context, String tite, String image) {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return const HydrogelPage();
+            return type == "hydrogel" ? const HydrogelPage() : const BlogPage();
           },
         ));
       },

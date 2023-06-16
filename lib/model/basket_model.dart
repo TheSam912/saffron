@@ -1,7 +1,7 @@
 class BasketModel {
   int id;
   String title;
-  int count;
+  String count;
   String price;
   String image;
 
@@ -12,3 +12,5 @@ class BasketModel {
       required this.image,
       required this.price});
 }
+
+List<BasketModel> listBasket = [];

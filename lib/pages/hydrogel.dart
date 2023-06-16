@@ -73,6 +73,7 @@ class _HydrogelPageState extends State<HydrogelPage>
         foregroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
+        physics: const ClampingScrollPhysics(),
         child: Column(
           children: [
             SizedBox(
@@ -81,6 +82,7 @@ class _HydrogelPageState extends State<HydrogelPage>
                 children: [
                   TabBarView(
                     controller: _tabController,
+                    physics: const ClampingScrollPhysics(),
                     children: const [
                       Store(),
                       Info(),

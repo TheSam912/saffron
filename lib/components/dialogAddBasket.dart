@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
+import 'package:saffron_project/model/basket_model.dart';
 
 import '../model/hydrogel_model.dart';
 
@@ -50,7 +51,14 @@ Widget dialogAddBasket(int index) {
               height: 15,
             ),
             OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  listBasket.add(BasketModel(
+                      id: 0,
+                      title: listHydrogel[index].title,
+                      count: "1",
+                      image: listHydrogel[index].image,
+                      price: listHydrogel[index].price));
+                },
                 child: const Text(
                   "Add to basket +",
                   style: TextStyle(fontWeight: FontWeight.w700),

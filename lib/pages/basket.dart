@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
+import 'package:saffron_project/model/basket_model.dart';
 import 'package:saffron_project/model/hydrogel_model.dart';
 
-class BasketPage extends StatelessWidget {
+class BasketPage extends StatefulWidget {
   const BasketPage({super.key});
 
+  @override
+  State<BasketPage> createState() => _BasketPageState();
+}
+
+class _BasketPageState extends State<BasketPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,21 +23,23 @@ class BasketPage extends StatelessWidget {
         elevation: 0,
         foregroundColor: Colors.white,
       ),
-      floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.green,
-          shape: const CircleBorder(),
-          onPressed: () {},
-          child: const Icon(
-            Icons.shopping_cart_checkout,
-            color: Colors.white,
-            size: 25,
-          )),
+      floatingActionButton: listBasket.isNotEmpty
+          ? FloatingActionButton(
+              backgroundColor: Colors.green,
+              shape: const CircleBorder(),
+              onPressed: () {},
+              child: const Icon(
+                Icons.shopping_cart_checkout,
+                color: Colors.white,
+                size: 25,
+              ))
+          : const Center(),
       body: Stack(
         fit: StackFit.expand,
         children: [
           ListView.builder(
             shrinkWrap: true,
-            itemCount: listHydrogel.length,
+            itemCount: listBasket.length,
             itemBuilder: (context, index) {
               return Stack(
                 children: [
@@ -48,7 +56,7 @@ class BasketPage extends StatelessWidget {
                     child: Row(
                       children: [
                         Image(
-                          image: AssetImage(listHydrogel[index].image),
+                          image: AssetImage(listBasket[index].image),
                           width: 120,
                           height: 120,
                         ),
@@ -56,15 +64,10 @@ class BasketPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              listHydrogel[index].title,
+                              listBasket[index].title,
                               style:
                                   const TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            Text(
-                              listHydrogel[index].weight,
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold),
-                            )
                           ],
                         )
                       ],
@@ -74,7 +77,31 @@ class BasketPage extends StatelessWidget {
                     top: 15,
                     right: 15,
                     child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: const Text("Are sure?"),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text("Cancle")),
+                                  TextButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          listBasket.remove(listBasket[index]);
+                                        });
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text("Yes"))
+                                ],
+                              );
+                            },
+                          );
+                        },
                         icon: const Icon(
                           Icons.delete_outline,
                           color: Colors.red,
@@ -93,20 +120,20 @@ class BasketPage extends StatelessWidget {
                                 bottomLeft: Radius.circular(15),
                                 bottomRight: Radius.circular(15)),
                             color: mainColor),
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 25),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Count: 2",
-                                style: TextStyle(
+                                "Count: ${listBasket[index].count}",
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
                               Text(
-                                "6€",
-                                style: TextStyle(
+                                "${listBasket[index].price}€",
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               )

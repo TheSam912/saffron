@@ -4,7 +4,6 @@ import 'package:saffron_project/contant/color.dart';
 import 'package:saffron_project/pages/detailProduct.dart';
 
 import '../model/hydrogel_model.dart';
-import 'dialogAddBasket.dart';
 
 Widget myGridViewItem(BuildContext context, int index) {
   return Stack(
@@ -20,7 +19,7 @@ Widget myGridViewItem(BuildContext context, int index) {
           // );
           Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return DetailProduct(
+              return detailProduct(
                 id: listHydrogel[index].id,
                 image: listHydrogel[index].image,
                 price: listHydrogel[index].price,

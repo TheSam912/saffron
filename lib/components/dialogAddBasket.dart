@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
 import 'package:saffron_project/model/basket_model.dart';
 
+// ignore: camel_case_types, must_be_immutable
 class dialogAddBasket extends StatefulWidget {
   int index;
   List list;

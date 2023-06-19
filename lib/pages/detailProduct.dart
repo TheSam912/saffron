@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
 import 'package:saffron_project/model/basket_model.dart';
 
-import '../model/hydrogel_model.dart';
 import 'basket.dart';
 
-class DetailProduct extends StatefulWidget {
+// ignore: must_be_immutable, camel_case_types
+class detailProduct extends StatefulWidget {
   int id;
   String image;
   String title;
   String weight;
   String price;
   String type;
-  DetailProduct(
+  detailProduct(
       {super.key,
       required this.id,
       required this.image,
@@ -22,10 +22,11 @@ class DetailProduct extends StatefulWidget {
       required this.type});
 
   @override
-  State<DetailProduct> createState() => _DetailProductState();
+  State<detailProduct> createState() => _detailProductState();
 }
 
-class _DetailProductState extends State<DetailProduct> {
+// ignore: camel_case_types
+class _detailProductState extends State<detailProduct> {
   int count = 1;
   String? strPrice;
   @override

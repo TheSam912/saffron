@@ -14,7 +14,7 @@ Widget myGridViewItem(BuildContext context, int index) {
           showDialog(
             context: context,
             builder: (context) {
-              return dialogAddBasket(index);
+              return dialogAddBasket(index: index, list: listHydrogel);
             },
           );
         },

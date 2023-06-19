@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saffron_project/components/dialogAddBasket.dart';
 import 'package:saffron_project/contant/color.dart';
 import 'package:saffron_project/model/product_model.dart';
 
@@ -53,52 +54,62 @@ Widget gridHoney() {
     itemCount: honeyList.length,
     shrinkWrap: true,
     itemBuilder: (context, index) {
-      return Stack(
-        fit: StackFit.expand,
-        children: [
-          Container(
-            margin: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(color: Colors.grey.shade300, blurRadius: 10)
-                ]),
-            child: Column(
-              children: [
-                Image.asset(
-                  honeyList[index].image,
-                  width: 130,
-                  height: 130,
-                  fit: BoxFit.cover,
-                ),
-                Text(honeyList[index].title),
-                Text(honeyList[index].weight),
-                Text(
-                  "${honeyList[index].price}€",
-                  style:
-                      TextStyle(fontWeight: FontWeight.w800, color: mainColor),
-                )
-              ],
+      return GestureDetector(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return dialogAddBasket(index: index, list: honeyList);
+            },
+          );
+        },
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Container(
+              margin: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(color: Colors.grey.shade300, blurRadius: 10)
+                  ]),
+              child: Column(
+                children: [
+                  Image.asset(
+                    honeyList[index].image,
+                    width: 130,
+                    height: 130,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(honeyList[index].title),
+                  Text(honeyList[index].weight),
+                  Text(
+                    "${honeyList[index].price}€",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800, color: mainColor),
+                  )
+                ],
+              ),
             ),
-          ),
-          Positioned(
-              top: 15,
-              right: 15,
-              child: Container(
-                width: 35,
-                height: 35,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: mainColor),
-                child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.add_shopping_cart,
-                      color: Colors.white,
-                      size: 20,
-                    )),
-              ))
-        ],
+            Positioned(
+                top: 15,
+                right: 15,
+                child: Container(
+                  width: 35,
+                  height: 35,
+                  decoration:
+                      BoxDecoration(shape: BoxShape.circle, color: mainColor),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.add_shopping_cart,
+                        color: Colors.white,
+                        size: 20,
+                      )),
+                ))
+          ],
+        ),
       );
     },
   );
@@ -111,60 +122,70 @@ Widget gridSaffron() {
     itemCount: saffronList.length,
     shrinkWrap: true,
     itemBuilder: (context, index) {
-      return Stack(
-        fit: StackFit.expand,
-        children: [
-          Container(
-            margin: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(color: Colors.grey.shade300, blurRadius: 10)
-                ]),
-            child: Column(
-              children: [
-                Image.asset(
-                  saffronList[index].image,
-                  width: 130,
-                  height: 130,
-                  fit: BoxFit.cover,
-                ),
-                Text(saffronList[index].title),
-                Text(saffronList[index].weight),
-                Text(
-                  "${saffronList[index].price}€",
-                  style:
-                      TextStyle(fontWeight: FontWeight.w800, color: mainColor),
-                )
-              ],
+      return GestureDetector(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return dialogAddBasket(index: index, list: saffronList);
+            },
+          );
+        },
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Container(
+              margin: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(color: Colors.grey.shade300, blurRadius: 10)
+                  ]),
+              child: Column(
+                children: [
+                  Image.asset(
+                    saffronList[index].image,
+                    width: 130,
+                    height: 130,
+                    fit: BoxFit.cover,
+                  ),
+                  Text(saffronList[index].title),
+                  Text(saffronList[index].weight),
+                  Text(
+                    "${saffronList[index].price}€",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800, color: mainColor),
+                  )
+                ],
+              ),
             ),
-          ),
-          Positioned(
-              top: 15,
-              right: 15,
-              child: Container(
-                width: 35,
-                height: 35,
-                decoration:
-                    BoxDecoration(shape: BoxShape.circle, color: mainColor),
-                child: IconButton(
-                    onPressed: () {
-                      listBasket.add(BasketModel(
-                          id: 0,
-                          title:
-                              "${saffronList[index].weight} ${saffronList[index].title}",
-                          count: "1",
-                          image: saffronList[index].image,
-                          price: saffronList[index].price));
-                    },
-                    icon: const Icon(
-                      Icons.add_shopping_cart,
-                      color: Colors.white,
-                      size: 20,
-                    )),
-              ))
-        ],
+            Positioned(
+                top: 15,
+                right: 15,
+                child: Container(
+                  width: 35,
+                  height: 35,
+                  decoration:
+                      BoxDecoration(shape: BoxShape.circle, color: mainColor),
+                  child: IconButton(
+                      onPressed: () {
+                        listBasket.add(BasketModel(
+                            id: 0,
+                            title:
+                                "${saffronList[index].weight} ${saffronList[index].title}",
+                            count: "1",
+                            image: saffronList[index].image,
+                            price: saffronList[index].price));
+                      },
+                      icon: const Icon(
+                        Icons.add_shopping_cart,
+                        color: Colors.white,
+                        size: 20,
+                      )),
+                ))
+          ],
+        ),
       );
     },
   );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:saffron_project/components/dialogAddBasket.dart';
 import 'package:saffron_project/contant/color.dart';
 import 'package:saffron_project/model/product_model.dart';
+import 'package:saffron_project/pages/detailProduct.dart';
 
 import '../model/basket_model.dart';
 import 'basket.dart';
@@ -56,12 +57,17 @@ Widget gridHoney() {
     itemBuilder: (context, index) {
       return GestureDetector(
         onTap: () {
-          showDialog(
-            context: context,
+          Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return dialogAddBasket(index: index, list: honeyList);
+              return detailProduct(
+                  id: honeyList[index].id,
+                  image: honeyList[index].image,
+                  price: honeyList[index].price,
+                  title: honeyList[index].title,
+                  weight: honeyList[index].weight,
+                  type: "Honey");
             },
-          );
+          ));
         },
         child: Stack(
           fit: StackFit.expand,
@@ -124,12 +130,17 @@ Widget gridSaffron() {
     itemBuilder: (context, index) {
       return GestureDetector(
         onTap: () {
-          showDialog(
-            context: context,
+          Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return dialogAddBasket(index: index, list: saffronList);
+              return detailProduct(
+                  id: saffronList[index].id,
+                  image: saffronList[index].image,
+                  price: saffronList[index].price,
+                  title: saffronList[index].title,
+                  weight: saffronList[index].weight,
+                  type: "Saffron");
             },
-          );
+          ));
         },
         child: Stack(
           fit: StackFit.expand,

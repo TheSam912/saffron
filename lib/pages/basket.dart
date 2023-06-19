@@ -122,6 +122,7 @@ class _BasketPageState extends State<BasketPage> {
 }
 
 Widget rowPriceCount(int index) {
+  // ignore: prefer_typing_uninitialized_variables
   var finalPrice;
   void check() {
     String listlenght = listBasket[index].count;

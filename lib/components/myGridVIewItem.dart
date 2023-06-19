@@ -25,7 +25,7 @@ Widget myGridViewItem(BuildContext context, int index) {
                 price: listHydrogel[index].price,
                 title: listHydrogel[index].title,
                 weight: listHydrogel[index].weight,
-                type: "hydrogel",
+                type: "Hydrogel",
               );
             },
           ));

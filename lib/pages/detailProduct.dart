@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saffron_project/contant/color.dart';
+import 'package:saffron_project/contant/strings.dart';
 import 'package:saffron_project/model/basket_model.dart';
 
 import 'basket.dart';
@@ -34,33 +35,10 @@ class _detailProductState extends State<detailProduct> {
     strPrice = widget.price;
     double doublePrice = double.parse(strPrice!);
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: IconButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const BasketPage();
-                    },
-                  ));
-                },
-                icon: const Icon(
-                  Icons.shopping_cart_rounded,
-                  size: 25,
-                  color: Colors.white,
-                )),
-          )
-        ],
-        title: Text(
-          widget.type.toUpperCase(),
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: mainColor,
-        elevation: 0,
-        foregroundColor: Colors.white,
-      ),
+      // appBar: myAppBar(context, widget.type.toUpperCase()),
+      appBar: PreferredSize(
+          preferredSize: Size.infinite,
+          child: myAppBar(context, widget.type.toUpperCase())),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -100,6 +78,16 @@ class _detailProductState extends State<detailProduct> {
             ),
             const SizedBox(
               height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18),
+              child: Text(
+                checkDesc(widget.type),
+                style: TextStyle(color: Colors.grey.shade800, fontSize: 15),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 12),
@@ -174,6 +162,9 @@ class _detailProductState extends State<detailProduct> {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             GestureDetector(
               onTap: () {
                 listBasket.add(BasketModel(
@@ -203,4 +194,45 @@ class _detailProductState extends State<detailProduct> {
       ),
     );
   }
+}
+
+Widget myAppBar(BuildContext context, String type) {
+  return AppBar(
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return const BasketPage();
+                },
+              ));
+            },
+            icon: const Icon(
+              Icons.shopping_cart_rounded,
+              size: 25,
+              color: Colors.white,
+            )),
+      )
+    ],
+    title: Text(
+      type,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    ),
+    backgroundColor: mainColor,
+    elevation: 0,
+    foregroundColor: Colors.white,
+  );
+}
+
+String checkDesc(String type) {
+  if (type == "Saffron") {
+    return descriptionOrganicSaffron;
+  } else if (type == "Hydrogel") {
+    return descriptionHydrogel;
+  } else if (type == "Honey") {
+    return descriptionHoneySaffron;
+  }
+  return "";
 }

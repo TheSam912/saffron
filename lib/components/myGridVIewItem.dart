@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:saffron_project/contant/color.dart';
+import 'package:saffron_project/pages/detailProduct.dart';
 
 import '../model/hydrogel_model.dart';
 import 'dialogAddBasket.dart';
@@ -11,12 +12,24 @@ Widget myGridViewItem(BuildContext context, int index) {
     children: [
       GestureDetector(
         onTap: () {
-          showDialog(
-            context: context,
+          // showDialog(
+          //   context: context,
+          //   builder: (context) {
+          //     return dialogAddBasket(index: index, list: listHydrogel);
+          //   },
+          // );
+          Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return dialogAddBasket(index: index, list: listHydrogel);
+              return DetailProduct(
+                id: listHydrogel[index].id,
+                image: listHydrogel[index].image,
+                price: listHydrogel[index].price,
+                title: listHydrogel[index].title,
+                weight: listHydrogel[index].weight,
+                type: "hydrogel",
+              );
             },
-          );
+          ));
         },
         child: Container(
           margin: const EdgeInsets.all(8),
